@@ -18,6 +18,8 @@ pipeline {
             steps {
                 
                 echo 'Deploying....'
+                sh 'pwd'
+                sh 'ls -lrth'
                 
 
             }
