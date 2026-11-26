@@ -2,6 +2,9 @@ pipeline {
     agent {
     label 'Agent-1'
     } 
+    environment{
+        USER = 'Naveen'
+    }
 
     stages {
         stage('Build') {
@@ -24,6 +27,15 @@ pipeline {
 
             }
         }
+        stage('Example') {
+            environment { 
+                AN_ACCESS_KEY = credentials('ssh-auth') 
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
+
     }
 
 
