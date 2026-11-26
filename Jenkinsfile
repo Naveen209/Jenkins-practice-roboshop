@@ -47,7 +47,7 @@ pipeline {
                 sh 'printenv'
             }
         }
-        stage('Example') {
+        stage('Parameters') {
             steps {
                 echo "Hello ${params.PERSON}"
 
