@@ -5,6 +5,9 @@ pipeline {
     environment{
         USER = 'Naveen'
     }
+    options{
+        ansiColor('xterm')
+    }
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 
@@ -58,6 +61,14 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
 
                 echo "Password: ${params.PASSWORD}"
+            }
+        }
+        stage('Deploy to Production') {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo 'Deploying to production because this is the master branch!'
             }
         }
 
